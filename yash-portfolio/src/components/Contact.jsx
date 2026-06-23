@@ -70,7 +70,7 @@ const Contact = () => {
                 +91 8851998403
               </a>
               <a
-                href="https://linkedin.com/in/yash-rawat"
+                href="https://www.linkedin.com/in/yash-rawat0947/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="contact-link"

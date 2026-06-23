@@ -103,7 +103,7 @@ const About = () => {
 
             <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
               <a
-                href="https://linkedin.com/in/yash-rawat"
+                href="https://www.linkedin.com/in/yash-rawat0947/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline"

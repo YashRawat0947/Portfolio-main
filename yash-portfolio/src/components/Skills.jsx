@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 
 const useReveal = (ref) => {
   useEffect(() => {
@@ -24,6 +24,24 @@ const useReveal = (ref) => {
   }, [ref]);
 };
 
+/* ── Animate bars when container enters view ── */
+const useBarAnimation = (ref) => {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [ref]);
+  return visible;
+};
+
 const SKILL_CATEGORIES = [
   {
     title: 'Languages',
@@ -33,17 +51,12 @@ const SKILL_CATEGORIES = [
   {
     title: 'Frontend',
     variant: 'green',
-    items: ['React', 'Next.js', 'TailwindCSS', 'Bootstrap', 'Tkinter'],
+    items: ['React.js', 'Next.js'],
   },
   {
-    title: 'Backend & APIs',
+    title: 'Backend',
     variant: 'orange',
-    items: ['Node.js', 'Express', 'FastAPI', 'Flask', 'Django', 'REST API', 'Socket.io', 'WebSockets'],
-  },
-  {
-    title: 'AI / ML',
-    variant: 'default',
-    items: ['Hugging Face API', 'OpenCV', 'Image Embeddings', 'Vision Models'],
+    items: ['Node.js', 'Express.js', 'Flask', 'FastAPI', 'Django'],
   },
   {
     title: 'Databases',
@@ -51,15 +64,42 @@ const SKILL_CATEGORIES = [
     items: ['MongoDB', 'MySQL'],
   },
   {
-    title: 'Tools & DevOps',
+    title: 'Machine Learning & AI',
+    variant: 'default',
+    items: [
+      'TensorFlow',
+      'Keras',
+      'Scikit-Learn',
+      'OpenCV',
+      'NumPy',
+      'Hugging Face API',
+      'YOLOv8',
+      'ResNet-50',
+      'MediaPipe',
+      'TensorFlow.js',
+      'Computer Vision',
+    ],
+  },
+  {
+    title: 'Tools & Technologies',
     variant: 'orange',
-    items: ['Git', 'GitHub', 'JWT Auth', 'Cryptography', 'VS Code'],
+    items: ['GitHub', 'REST APIs', 'Socket.io', 'JWT', 'Cryptography'],
   },
 ];
 
 const Skills = () => {
   const sectionRef = useRef(null);
+  const barsRef = useRef(null);
   useReveal(sectionRef);
+  const barsVisible = useBarAnimation(barsRef);
+
+  const skills = [
+    { name: 'Python & AI / ML Stack', pct: 88, color: 'var(--cyan)' },
+    { name: 'Node.js / Backend Development', pct: 82, color: 'var(--purple-bright)' },
+    { name: 'React.js / Frontend', pct: 78, color: 'var(--green)' },
+    { name: 'Databases (MongoDB / MySQL)', pct: 80, color: 'var(--orange)' },
+    { name: 'REST APIs, Socket.io & Auth', pct: 84, color: 'var(--cyan)' },
+  ];
 
   return (
     <section id="skills" className="section" ref={sectionRef}>
@@ -91,13 +131,36 @@ const Skills = () => {
 
         {/* Skill level indicators */}
         <div
+          ref={barsRef}
           className="glass-card reveal"
           style={{
             marginTop: '2rem',
             padding: '2rem',
+            position: 'relative',
+            overflow: 'hidden',
             transitionDelay: '0.5s',
           }}
         >
+          {/* ── Corner glow blobs ── */}
+          <div style={{
+            position: 'absolute',
+            top: '-60px',
+            right: '-60px',
+            width: '220px',
+            height: '220px',
+            background: 'radial-gradient(circle, rgba(0,245,255,0.12) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+          <div style={{
+            position: 'absolute',
+            bottom: '-50px',
+            left: '-50px',
+            width: '180px',
+            height: '180px',
+            background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)',
+            pointerEvents: 'none',
+          }} />
+
           <div
             style={{
               fontFamily: 'var(--font-mono)',
@@ -110,20 +173,14 @@ const Skills = () => {
           >
             Proficiency Overview
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[
-              { name: 'Python & AI/ML', pct: 85, color: 'var(--cyan)' },
-              { name: 'Node.js / Backend Dev', pct: 80, color: 'var(--purple-bright)' },
-              { name: 'React / Frontend', pct: 75, color: 'var(--green)' },
-              { name: 'Database (MongoDB / MySQL)', pct: 78, color: 'var(--orange)' },
-              { name: 'REST APIs & Authentication', pct: 82, color: 'var(--cyan)' },
-            ].map((skill) => (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            {skills.map((skill, i) => (
               <div key={skill.name}>
                 <div
                   style={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    marginBottom: '0.35rem',
+                    marginBottom: '0.4rem',
                   }}
                 >
                   <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
@@ -134,27 +191,49 @@ const Skills = () => {
                       fontFamily: 'var(--font-mono)',
                       fontSize: '0.75rem',
                       color: skill.color,
+                      opacity: barsVisible ? 1 : 0,
+                      transition: 'opacity 0.4s ease 0.3s',
                     }}
                   >
                     {skill.pct}%
                   </span>
                 </div>
+                {/* Track */}
                 <div
                   style={{
-                    height: '4px',
+                    height: '6px',
                     background: 'rgba(255,255,255,0.05)',
-                    borderRadius: '4px',
+                    borderRadius: '6px',
                     overflow: 'hidden',
+                    position: 'relative',
                   }}
                 >
+                  {/* Fill - animates from 0 to target */}
                   <div
                     style={{
                       height: '100%',
-                      width: `${skill.pct}%`,
+                      width: barsVisible ? `${skill.pct}%` : '0%',
                       background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
-                      borderRadius: '4px',
-                      boxShadow: `0 0 8px ${skill.color}44`,
-                      transition: 'width 1.5s cubic-bezier(0.4,0,0.2,1)',
+                      borderRadius: '6px',
+                      boxShadow: `0 0 12px ${skill.color}44, 0 0 24px ${skill.color}22`,
+                      transition: `width 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
+                    }}
+                  />
+                  {/* Glow tip */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: barsVisible ? `${skill.pct}%` : '0%',
+                      transform: 'translate(-50%, -50%)',
+                      width: '10px',
+                      height: '10px',
+                      borderRadius: '50%',
+                      background: skill.color,
+                      boxShadow: `0 0 10px ${skill.color}, 0 0 20px ${skill.color}66`,
+                      opacity: barsVisible ? 1 : 0,
+                      transition: `left 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s, opacity 0.3s ease ${i * 0.15 + 0.3}s`,
+                      pointerEvents: 'none',
                     }}
                   />
                 </div>

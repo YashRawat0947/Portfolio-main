@@ -35,7 +35,7 @@ const About = () => {
     { ln: '2', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'name' }, { cls: 'code-op', text: ': ' }, { cls: 'code-str', text: '"Yash Rawat"' }, { cls: 'code-op', text: ',' }] },
     { ln: '3', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'role' }, { cls: 'code-op', text: ': ' }, { cls: 'code-str', text: '"CS Undergrad (AI/ML)"' }, { cls: 'code-op', text: ',' }] },
     { ln: '4', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'university' }, { cls: 'code-op', text: ': ' }, { cls: 'code-str', text: '"Galgotias University"' }, { cls: 'code-op', text: ',' }] },
-    { ln: '5', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'email' }, { cls: 'code-op', text: ': ' }, { cls: 'code-str', text: '"yashrawat2006@gmail.com"' }, { cls: 'code-op', text: ',' }] },
+    { ln: '5', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'email' }, { cls: 'code-op', text: ': ' }, { cls: 'code-str', text: '"yashrawat5549@gmail.com"' }, { cls: 'code-op', text: ',' }] },
     { ln: '6', parts: [{ cls: '', text: '  ' }, { cls: 'code-var', text: 'passion' }, { cls: 'code-op', text: ': [' }] },
     { ln: '7', parts: [{ cls: '', text: '    ' }, { cls: 'code-str', text: '"AI/ML Systems"' }, { cls: 'code-op', text: ', ' }, { cls: 'code-str', text: '"Web Dev"' }] },
     { ln: '8', parts: [{ cls: '', text: '    ' }, { cls: 'code-str', text: '"Real-time Apps"' }, { cls: 'code-op', text: ',' }] },
@@ -80,23 +80,30 @@ const About = () => {
               I'm a Computer Science undergraduate specializing in{' '}
               <span style={{ color: 'var(--cyan)' }}>AI/ML</span> at Galgotias University.
               I'm passionate about creating real-world solutions through technology —
-              from AI-powered image retrieval systems to real-time chat applications.
+              from AI-powered image retrieval systems to real-time chat applications
+              and computer vision pipelines for automated damage assessment.
             </p>
             <p>
               As a{' '}
               <span style={{ color: 'var(--purple-bright)' }}>Backend Developer Intern</span>{' '}
-              at 3W Business Pvt. Limited, I worked with Socket.io for real-time messaging,
-              optimized MongoDB performance, and implemented JWT-based authentication systems.
+              at 3W Business Pvt. Limited, I engineered real-time chat facilities using Socket.io
+              for bidirectional messaging and live notifications.
             </p>
             <p>
-              As a{' '}
-              <span style={{ color: 'var(--orange)' }}>Smart India Hackathon 2024 Finalist</span>,{' '}
-              I designed secure encryption/decryption modules for legacy system data protection
-              at IIT Gandhinagar under PSID 1727.
+              Currently, I'm working as a{' '}
+              <span style={{ color: 'var(--orange)' }}>Data Scientist Intern</span>{' '}
+              at The Oriental Insurance Company, building an AI-powered car damage assessment system
+              using YOLOv8 for part detection and fine-tuned ResNet-50 for damage severity classification.
+            </p>
+            <p>
+              I'm also a{' '}
+              <span style={{ color: 'var(--green)' }}>Smart India Hackathon 2024 Finalist</span>{' '}
+              (Problem Statement ID: 1727) at IIT Gandhinagar, where I built an AI-Based
+              Misplaced Item Detection System using Hugging Face vision models.
             </p>
 
             <div className="about-highlights">
-              {['Python', 'React', 'Node.js', 'FastAPI', 'MongoDB', 'Socket.io', 'AI/ML', 'REST API'].map((tech) => (
+              {['Python', 'React.js', 'Node.js', 'FastAPI', 'MongoDB', 'YOLOv8', 'TensorFlow', 'OpenCV'].map((tech) => (
                 <span key={tech} className="tag">{tech}</span>
               ))}
             </div>

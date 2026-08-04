@@ -123,9 +123,9 @@ const Achievements = () => {
           {/* Meta info */}
           <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', marginBottom: '1.75rem' }}>
             {[
-              { icon: '📍', label: 'Venue', value: 'IIT Gandhinagar' },
-              { icon: '🔑', label: 'Problem ID', value: 'PSID 1727' },
-              { icon: '🏛️', label: 'Level', value: 'National' },
+              {  label: 'Venue', value: 'IIT Gandhinagar' },
+              {  label: 'Problem ID', value: 'PSID 1727' },
+              {  label: 'Level', value: 'National' },
             ].map((meta) => (
               <div key={meta.label}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.1em', marginBottom: '0.2rem' }}>
@@ -145,17 +145,14 @@ const Achievements = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginBottom: '1.75rem' }}>
             {[
               {
-                icon: '🥇',
                 title: 'National Finalist',
                 desc: 'Selected as a national finalist among thousands of teams from across India at Smart India Hackathon 2024.',
               },
               {
-                icon: '🔐',
                 title: 'Secure Legacy Framework',
                 desc: 'Designed a robust security framework for legacy applications addressing real-world vulnerabilities under PSID 1727.',
               },
               {
-                icon: '🔒',
                 title: 'Encryption Modules',
                 desc: 'Implemented advanced encryption and decryption modules for system-level data protection ensuring tamper-proof payloads.',
               },

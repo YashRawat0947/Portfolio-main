@@ -133,7 +133,7 @@ const Experience = () => {
             display: 'grid',
             gridTemplateColumns: '1fr 40px 1fr',
             alignItems: 'center',
-            marginBottom: '4rem',           /* ← vertical space */
+            marginBottom: '4rem',
           }}>
 
             {/* LEFT — School card */}
@@ -177,7 +177,7 @@ const Experience = () => {
                     padding:'0.32rem 0.9rem', borderRadius:'20px',
                     fontWeight:'700', letterSpacing:'0.06em',
                   }}>
-                    82%
+                    81%
                   </div>
                 </div>
 
@@ -195,11 +195,11 @@ const Experience = () => {
                 <div>
                   <div style={{ display:'flex', justifyContent:'space-between', marginBottom:'0.3rem' }}>
                     <span style={{ fontFamily:'var(--font-mono)', fontSize:'0.62rem', color:'var(--text-muted)' }}>Score</span>
-                    <span style={{ fontFamily:'var(--font-mono)', fontSize:'0.62rem', color:'var(--green)' }}>82 / 100</span>
+                    <span style={{ fontFamily:'var(--font-mono)', fontSize:'0.62rem', color:'var(--green)' }}>81 / 100</span>
                   </div>
                   <div style={{ height:'3px', background:'rgba(255,255,255,0.05)', borderRadius:'3px', overflow:'hidden' }}>
                     <div style={{
-                      height:'100%', width:'82%',
+                      height:'100%', width:'81%',
                       background:'linear-gradient(90deg, #00c864, var(--green))',
                       boxShadow:'0 0 8px rgba(0,255,136,0.5)', borderRadius:'3px',
                     }} />
@@ -323,7 +323,7 @@ const Experience = () => {
 
 
         {/* ══════════════════════════════
-            WORK EXPERIENCE — Hero Card
+            WORK EXPERIENCE — Hero Cards
         ══════════════════════════════ */}
         <div
           style={{
@@ -336,6 +336,7 @@ const Experience = () => {
           Work Experience
         </div>
 
+        {/* ── Card 1 : 3W Business ── */}
         <div
           className="glass-card reveal"
           style={{
@@ -344,6 +345,7 @@ const Experience = () => {
             padding: '2.5rem',
             position: 'relative',
             overflow: 'hidden',
+            marginBottom: '2.5rem',
           }}
         >
           {/* Glow blobs */}
@@ -363,13 +365,6 @@ const Experience = () => {
           {/* Header */}
           <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:'1rem', marginBottom:'1.75rem' }}>
             <div style={{ display:'flex', alignItems:'center', gap:'1.25rem' }}>
-              <div style={{
-                width:'58px', height:'58px', borderRadius:'14px', flexShrink:0,
-                background:'linear-gradient(135deg, rgba(0,245,255,0.2), rgba(124,58,237,0.2))',
-                border:'1px solid rgba(0,245,255,0.3)',
-                display:'flex', alignItems:'center', justifyContent:'center',
-                fontSize:'1.6rem',
-              }}>💼</div>
               <div>
                 <div style={{
                   fontFamily:'var(--font-mono)', fontSize:'0.65rem',
@@ -398,9 +393,9 @@ const Experience = () => {
           {/* 3 responsibility cards */}
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))', gap:'1rem', marginBottom:'1.75rem' }}>
             {[
-              { icon:'⚡', title:'Real-Time Messaging',  desc:'Integrated Socket.io for bidirectional real-time messaging and live notifications.' },
-              { icon:'🗄️', title:'DB Optimisation',      desc:'Profiled and optimized MongoDB queries for significantly faster read performance.' },
-              { icon:'🔑', title:'Auth & Authorization', desc:'Implemented JWT authentication and role-based access control across all API endpoints.' },
+              { title:'Real-Time Messaging',  desc:'Integrated Socket.io for bidirectional real-time messaging and live notifications.' },
+              { title:'DB Optimisation',      desc:'Profiled and optimized MongoDB queries for significantly faster read performance.' },
+              { title:'Auth & Authorization', desc:'Implemented JWT authentication and role-based access control across all API endpoints.' },
             ].map((item) => (
               <div
                 key={item.title}
@@ -421,7 +416,6 @@ const Experience = () => {
                   e.currentTarget.style.transform   = 'translateY(0)';
                 }}
               >
-                <div style={{ fontSize:'1.4rem', marginBottom:'0.5rem' }}>{item.icon}</div>
                 <div style={{ fontSize:'0.87rem', fontWeight:'700', color:'var(--text-primary)', marginBottom:'0.4rem' }}>{item.title}</div>
                 <div style={{ fontSize:'0.79rem', color:'var(--text-secondary)', lineHeight:1.6 }}>{item.desc}</div>
               </div>
@@ -437,6 +431,106 @@ const Experience = () => {
             }}>Tech Stack</div>
             <div style={{ display:'flex', flexWrap:'wrap', gap:'0.45rem' }}>
               {['Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT', 'REST API'].map((t) => (
+                <span key={t} className="tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Card 2 : The Oriental Insurance Company ── */}
+        <div
+          className="glass-card reveal"
+          style={{
+            border: '1px solid rgba(245,158,11,0.25)',
+            background: 'linear-gradient(135deg, rgba(245,158,11,0.04) 0%, rgba(239,68,68,0.06) 100%)',
+            padding: '2.5rem',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Glow blobs */}
+          <div style={{
+            position:'absolute', top:'-60px', right:'-60px',
+            width:'240px', height:'240px',
+            background:'radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%)',
+            pointerEvents:'none',
+          }} />
+          <div style={{
+            position:'absolute', bottom:'-50px', left:'-50px',
+            width:'200px', height:'200px',
+            background:'radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)',
+            pointerEvents:'none',
+          }} />
+
+          {/* Header */}
+          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', flexWrap:'wrap', gap:'1rem', marginBottom:'1.75rem' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:'1.25rem' }}>
+              <div>
+                <div style={{
+                  fontFamily:'var(--font-mono)', fontSize:'0.65rem',
+                  color:'#f59e0b', letterSpacing:'0.2em',
+                  textTransform:'uppercase', marginBottom:'0.3rem',
+                }}>● Current</div>
+                <h3 style={{ fontSize:'1.4rem', fontWeight:'800', color:'var(--text-primary)', lineHeight:1.1, margin:0 }}>
+                  Data Scientist Intern
+                </h3>
+                <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.88rem', color:'#f59e0b', marginTop:'0.3rem' }}>
+                  The Oriental Insurance Company
+                </div>
+              </div>
+            </div>
+            <div style={{
+              fontFamily:'var(--font-mono)', fontSize:'0.75rem', color:'#f59e0b',
+              background:'rgba(245,158,11,0.08)', border:'1px solid rgba(245,158,11,0.25)',
+              padding:'0.45rem 1.1rem', borderRadius:'20px', whiteSpace:'nowrap',
+              alignSelf:'flex-start',
+            }}>Jul 2026 – Present</div>
+          </div>
+
+          {/* Divider */}
+          <div style={{ height:'1px', background:'linear-gradient(90deg, rgba(245,158,11,0.3), transparent)', marginBottom:'1.75rem' }} />
+
+          {/* 3 responsibility cards */}
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))', gap:'1rem', marginBottom:'1.75rem' }}>
+            {[
+              { title:'Two-Stage CV Pipeline',  desc:'YOLOv8 detects and localizes car components (bumper, hood, door, etc.) from a single uploaded image.' },
+              { title:'Damage Severity Classification', desc:'Fine-tuned ResNet-50 classifies each detected part\'s damage severity for automated assessment.' },
+              { title:'Repair Cost Estimation', desc:'End-to-end system estimates repair costs from damage classification output for insurance workflows.' },
+            ].map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  background:'rgba(245,158,11,0.03)',
+                  border:'1px solid rgba(245,158,11,0.1)',
+                  borderRadius:'10px', padding:'1.25rem',
+                  transition:'all 0.3s ease',
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'rgba(245,158,11,0.3)';
+                  e.currentTarget.style.background  = 'rgba(245,158,11,0.07)';
+                  e.currentTarget.style.transform   = 'translateY(-3px)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'rgba(245,158,11,0.1)';
+                  e.currentTarget.style.background  = 'rgba(245,158,11,0.03)';
+                  e.currentTarget.style.transform   = 'translateY(0)';
+                }}
+              >
+                <div style={{ fontSize:'0.87rem', fontWeight:'700', color:'var(--text-primary)', marginBottom:'0.4rem' }}>{item.title}</div>
+                <div style={{ fontSize:'0.79rem', color:'var(--text-secondary)', lineHeight:1.6 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Tech stack */}
+          <div>
+            <div style={{
+              fontFamily:'var(--font-mono)', fontSize:'0.65rem',
+              color:'var(--text-muted)', letterSpacing:'0.15em',
+              textTransform:'uppercase', marginBottom:'0.75rem',
+            }}>Tech Stack</div>
+            <div style={{ display:'flex', flexWrap:'wrap', gap:'0.45rem' }}>
+              {['Python', 'YOLOv8', 'ResNet-50', 'OpenCV', 'Computer Vision', 'Deep Learning'].map((t) => (
                 <span key={t} className="tag">{t}</span>
               ))}
             </div>

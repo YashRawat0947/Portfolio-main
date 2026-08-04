@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const TITLES = [
   'AI/ML Developer',
+  'Data Engineer',
   'Full Stack Engineer',
   'Backend Developer',
   'Problem Solver',

@@ -27,7 +27,6 @@ const useReveal = (ref) => {
 const PROJECTS = [
   {
     id: 1,
-    icon: '🤖',
     name: 'AI-Based Misplaced Item Detection',
     desc: 'An AI-powered system to match user-uploaded images of lost items using Hugging Face vision models. Implements embedding-based image similarity with secure REST APIs for upload, processing, and result retrieval.',
     tags: ['Python', 'FastAPI', 'Flask', 'Hugging Face API', 'OpenCV'],
@@ -37,7 +36,6 @@ const PROJECTS = [
   },
   {
     id: 2,
-    icon: '💬',
     name: 'Real-Time Chat App',
     desc: 'Full-featured real-time chat application allowing users to create custom rooms, send instant messages, and track active participants per room with WebSocket bidirectional communication.',
     tags: ['Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT', 'React'],
@@ -48,12 +46,37 @@ const PROJECTS = [
   },
   {
     id: 3,
-    icon: '🔒',
     name: 'QR Code Scanner — Secure Payload',
     desc: 'Encrypted QR scanning pipeline using Flask and OpenCV with a complete secure encode/decode flow, ensuring payload integrity and tamper-proof transmission.',
     tags: ['Flask', 'React', 'Cryptography', 'OpenCV', 'Python'],
     github: 'https://github.com/YashRawat0947',
     color: 'var(--green)',
+  },
+  {
+    id: 4,
+    name: 'Real-Time Sign Language Translation',
+    desc: 'Built a real-time ASL translator recognizing 36 gestures (A–Z, 0–9) via webcam using MediaPipe to extract 63 hand keypoints. Trained a custom MLP on 36K images achieving 90–95% accuracy. Deployed via TensorFlow.js for <1ms client-side browser inference with frame-buffering for flicker-free sentence generation in a Glassmorphism UI.',
+    tags: ['Python', 'TensorFlow/Keras', 'TensorFlow.js', 'MediaPipe', 'React'],
+    github: 'https://github.com/YashRawat0947',
+    live: '#',
+    color: '#f59e0b',
+    featured: true,
+  },
+  {
+    id: 5,
+    name: 'Car Parts Detection System',
+    desc: 'AI-powered car component detection and localization system using YOLOv8. Detects and localizes individual car components including bumper, hood, door, and other parts from a single uploaded image. Built as the first stage of a two-stage CV pipeline for automated vehicle inspection and repair cost estimation.',
+    tags: ['Python', 'YOLOv8', 'OpenCV', 'Computer Vision', 'Deep Learning'],
+    github: 'https://github.com/YashRawat0947',
+    color: '#ef4444',
+  },
+  {
+    id: 6,
+    name: 'Car Damage Severity Classifier',
+    desc: 'Fine-tuned ResNet-50 model for classifying car part damage severity from images with annotation support. Integrated with a YOLOv8 detection pipeline to estimate repair costs automatically. Achieves reliable severity classification across multiple damage categories for insurance assessment workflows.',
+    tags: ['Python', 'ResNet-50', 'PyTorch', 'Computer Vision', 'Classification'],
+    github: 'https://github.com/YashRawat0947',
+    color: '#eab308',
   },
 ];
 
@@ -96,15 +119,6 @@ const Projects = () => {
             >
               {/* Top */}
               <div className="project-top">
-                <div
-                  className="project-icon"
-                  style={{
-                    background: `linear-gradient(135deg, color-mix(in srgb, ${project.color} 20%, transparent), transparent)`,
-                    borderColor: `color-mix(in srgb, ${project.color} 30%, transparent)`,
-                  }}
-                >
-                  {project.icon}
-                </div>
                 <div className="project-links">
                   {project.live && (
                     <a href={project.live} target="_blank" rel="noopener noreferrer" data-hover title="Live Demo">

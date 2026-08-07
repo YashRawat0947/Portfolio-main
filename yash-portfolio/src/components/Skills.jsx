@@ -93,6 +93,8 @@ const Skills = () => {
   useReveal(sectionRef);
   const barsVisible = useBarAnimation(barsRef);
 
+  const clampPercent = (value) => Math.max(0, Math.min(value, 100));
+
   const skills = [
     { name: 'Python & AI / ML Stack', pct: 88, color: 'var(--cyan)' },
     { name: 'Node.js / Backend Development', pct: 82, color: 'var(--purple-bright)' },
@@ -174,71 +176,65 @@ const Skills = () => {
             Proficiency Overview
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-            {skills.map((skill, i) => (
-              <div key={skill.name}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginBottom: '0.4rem',
-                  }}
-                >
-                  <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                    {skill.name}
-                  </span>
-                  <span
+            {skills.map((skill, i) => {
+              const pct = clampPercent(skill.pct);
+
+              return (
+                <div key={skill.name}>
+                  <div
                     style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.75rem',
-                      color: skill.color,
-                      opacity: barsVisible ? 1 : 0,
-                      transition: 'opacity 0.4s ease 0.3s',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      marginBottom: '0.4rem',
                     }}
                   >
-                    {skill.pct}%
-                  </span>
-                </div>
-                {/* Track */}
-                <div
-                  style={{
-                    height: '6px',
-                    background: 'rgba(255,255,255,0.05)',
-                    borderRadius: '6px',
-                    overflow: 'hidden',
-                    position: 'relative',
-                  }}
-                >
-                  {/* Fill - animates from 0 to target */}
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                      {skill.name}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.75rem',
+                        color: skill.color,
+                        opacity: barsVisible ? 1 : 0,
+                        transition: 'opacity 0.4s ease 0.3s',
+                      }}
+                    >
+                      {pct}%
+                    </span>
+                  </div>
+                  {/* Track */}
                   <div
                     style={{
-                      height: '100%',
-                      width: barsVisible ? `${skill.pct}%` : '0%',
-                      background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
+                      height: '6px',
+                      background: 'rgba(255,255,255,0.05)',
                       borderRadius: '6px',
-                      boxShadow: `0 0 12px ${skill.color}44, 0 0 24px ${skill.color}22`,
-                      transition: `width 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
+                      overflow: 'hidden',
+                      position: 'relative',
                     }}
-                  />
-                  {/* Glow tip */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: barsVisible ? `${skill.pct}%` : '0%',
-                      transform: 'translate(-50%, -50%)',
-                      width: '10px',
-                      height: '10px',
-                      borderRadius: '50%',
-                      background: skill.color,
-                      boxShadow: `0 0 10px ${skill.color}, 0 0 20px ${skill.color}66`,
-                      opacity: barsVisible ? 1 : 0,
-                      transition: `left 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s, opacity 0.3s ease ${i * 0.15 + 0.3}s`,
-                      pointerEvents: 'none',
-                    }}
-                  />
+                  >
+                    {/* Fill - animates from 0 to target */}
+                    <div
+                      style={{
+                        height: '100%',
+                        width: barsVisible ? `${pct}%` : '0%',
+                        maxWidth: '100%',
+                        background: `linear-gradient(90deg, ${skill.color}, ${skill.color}88)`,
+                        borderRadius: '6px',
+                        boxShadow: `0 0 12px ${skill.color}44, 0 0 24px ${skill.color}22`,
+                        transition: `width 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.15}s`,
+                      }}
+                    />
+                    {/* Glow tip */}
+                    <div style={{
+                      height:'100%', width:'pct%',
+                      background:'linear-gradient(90deg, #00c864, var(--green))',
+                      boxShadow:'0 0 100% rgb(0, 255, 136)', borderRadius:'3px',
+                    }} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

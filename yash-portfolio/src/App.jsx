@@ -9,6 +9,7 @@ import Achievements from './components/Achievements';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import LeetCode from './components/LeetCode';
 
 const LoadingScreen = ({ onDone }) => {
   const [progress, setProgress] = useState(0);
@@ -163,6 +164,8 @@ function App() {
 
           <div className="section-divider" />
           <Skills />
+          <div className="section-divider" />
+          <LeetCode username="yashrawat2006" />  {/* ← Replace with your username */}
 
           <div className="section-divider" />
           <Contact />

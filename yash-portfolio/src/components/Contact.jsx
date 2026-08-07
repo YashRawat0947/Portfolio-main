@@ -49,7 +49,7 @@ const Contact = () => {
 
             <div className="contact-links">
               <a
-                href="mailto:yashrawat2006@gmail.com"
+                href="mailto:yashrawat5549@gmail.com"
                 className="contact-link"
                 data-hover
               >
@@ -57,7 +57,7 @@ const Contact = () => {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
-                yashrawat2006@gmail.com
+                yashrawat5549@gmail.com
               </a>
               <a
                 href="tel:8851998403"
@@ -134,7 +134,7 @@ const Contact = () => {
                 <div style={{ marginTop: '0.5rem' }}><span style={{ color: 'var(--green)' }}>yash@portfolio</span><span style={{ color: 'var(--text-muted)' }}>:~$ </span><span style={{ color: 'var(--text-primary)' }}>echo $LOCATION</span></div>
                 <div style={{ color: '#f0f0f0', paddingLeft: '1rem' }}>India 🇮🇳</div>
                 <div style={{ marginTop: '0.5rem' }}><span style={{ color: 'var(--green)' }}>yash@portfolio</span><span style={{ color: 'var(--text-muted)' }}>:~$ </span><span style={{ color: 'var(--text-primary)' }}>ping yash --message</span></div>
-                <div style={{ color: 'var(--text-muted)', paddingLeft: '1rem' }}>&gt; Drop a message at yashrawat2006@gmail.com</div>
+                <div style={{ color: 'var(--text-muted)', paddingLeft: '1rem' }}>&gt; Drop a message at yashrawat5549@gmail.com</div>
                 <div style={{ color: 'var(--text-muted)', paddingLeft: '1rem' }}>
                   <span style={{ color: 'var(--cyan)', animation: 'blink 1s infinite' }}>█</span>
                 </div>
@@ -142,7 +142,7 @@ const Contact = () => {
             </div>
 
             <a
-              href="mailto:yashrawat2006@gmail.com"
+              href="mailto:yashrawat5549@gmail.com"
               className="btn-primary"
               data-hover
               style={{ width: '100%', justifyContent: 'center', marginTop: '1rem' }}

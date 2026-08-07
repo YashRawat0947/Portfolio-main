@@ -48,7 +48,7 @@ const Navbar = () => {
         ))}
         <li>
           <a
-            href="mailto:yashrawat2006@gmail.com"
+            href="mailto:yashrawat5549@gmail.com"
             className="btn-primary"
             style={{ padding: '0.5rem 1.25rem', fontSize: '0.75rem', color: '#000' }}
             data-hover

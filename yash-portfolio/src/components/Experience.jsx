@@ -472,7 +472,7 @@ const Experience = () => {
                   textTransform:'uppercase', marginBottom:'0.3rem',
                 }}>● Current</div>
                 <h3 style={{ fontSize:'1.4rem', fontWeight:'800', color:'var(--text-primary)', lineHeight:1.1, margin:0 }}>
-                  Data Scientist Intern
+                  AI/ML Engineer Intern
                 </h3>
                 <div style={{ fontFamily:'var(--font-mono)', fontSize:'0.88rem', color:'#f59e0b', marginTop:'0.3rem' }}>
                   The Oriental Insurance Company
